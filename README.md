@@ -41,17 +41,19 @@ ________________________
 
 ___________________
 ```
-A[Untracked] --> B{Git add?};
-B -- Yes --> A[Untracked];
-B -- No --> C[staged + tracked];
-C[staged + tracked] --> D{Git commit?};
-D -- Yes --> E[Tracked];
-D -- No -->  C[staged + tracked];
-E[Tracked] --> F{Modified?};
-F -- Yes --> G[Modified];
-F -- No -->E[Tracked];
-G[Modified] --> H{Git add?};
-H -- Yes --> C[staged + tracked];
-H -- No --> G[Modified];
+   mermaid
+  graph TD;
+      A[Untracked] --> B{Git add?};
+      B -- Yes --> C[staged + tracked];
+      B -- No --> A;
+      C --> D{Git commit?};
+      D -- Yes --> E[Tracked];
+      D -- No -->  C;
+      E --> F{Modified?};
+      F -- Yes --> G[Modified];
+      F -- No --> E;
+      G --> H{Git add?};
+      H -- Yes --> C;
+      H -- No --> G;
 ```
 
