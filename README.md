@@ -39,3 +39,19 @@ ________________________
 - Все хеши, а также таблицу соответствий хеш → информация о коммите Git хранит в папке .git
 - Хеш можно найти, используя команду ```git log``` или ```git log --oneline``` для сокращенного вида лога (Сокращённый хеш можно использовать точно так же, как и полный. Для этого команда git log --oneline автоматически подбирает такую длину сокращённых хешей, чтобы они были уникальными в пределах репозитория)
 
+___________________
+```
+A[Untracked] --> B{Git add?};
+B -- Yes --> A[Untracked];
+B -- No --> C[staged + tracked];
+C[staged + tracked] --> D{Git commit?};
+D -- Yes --> E[Tracked];
+D -- No -->  C[staged + tracked];
+E[Tracked] --> F{Modified?};
+F -- Yes --> G[Modified];
+F -- No -->E[Tracked];
+G[Modified] --> H{Git add?};
+H -- Yes --> C[staged + tracked];
+H -- No --> G[Modified];
+```
+
