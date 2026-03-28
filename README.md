@@ -40,20 +40,19 @@ ________________________
 - Хеш можно найти, используя команду ```git log``` или ```git log --oneline``` для сокращенного вида лога (Сокращённый хеш можно использовать точно так же, как и полный. Для этого команда git log --oneline автоматически подбирает такую длину сокращённых хешей, чтобы они были уникальными в пределах репозитория)
 
 ___________________
-```
-   mermaid
-  graph TD;
-      A[Untracked] --> B{Git add?};
-      B -- Yes --> C[staged + tracked];
-      B -- No --> A;
-      C --> D{Git commit?};
-      D -- Yes --> E[Tracked];
-      D -- No -->  C;
-      E --> F{Modified?};
-      F -- Yes --> G[Modified];
-      F -- No --> E;
-      G --> H{Git add?};
-      H -- Yes --> C;
-      H -- No --> G;
+```mermaid
+graph TD;
+      A[Untracked] --> B{Git add?}
+      B -- Yes --> C[staged + tracked]
+      B -- No --> A
+      C --> D{Git commit?}
+      D -- Yes --> E[Tracked]
+      D -- No -->  C
+      E --> F{Modified?}
+      F -- Yes --> G[Modified]
+      F -- No --> E
+      G --> H{Git add?}
+      H -- Yes --> C
+      H -- No --> G
 ```
 
